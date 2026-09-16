@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────────────
+   BASSET DADDI — design tokens (docs/design-system.md)
+   Raw palette and families live in @theme (static utilities).
+   Surface-dependent tokens live on the cascade and are exposed inline, so
+   one component set works on ink, navy and paper.
+   ────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  --color-ink-0: #0a0c10;
+  --color-ink-1: #10141c;
+  --color-ink-2: #1a1f2a;
+  --color-paper-0: #f3f0ea;
+  --color-paper-1: #e9e5dc;
+  --color-blue-500: #3d7bff;
+  --color-blue-700: #1d5be0;
+
+  --font-latin: var(--font-instrument-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-arabic: var(--font-plex-arabic), "Segoe UI", Tahoma, sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-std: cubic-bezier(0.2, 0, 0, 1);
+
+  --container-site: 90rem; /* 1440px */
+}
+
+@theme inline {
+  --color-surface: var(--bg);
+  --color-surface-2: var(--bg-2);
+  --color-surface-3: var(--bg-3);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+  --color-fg-hover: var(--fg-hover);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --font-body: var(--font-stack);
+}
+
+/* Surfaces ──────────────────────────────────────────────────────────────── */
+:root,
+[data-surface="ink"] {
+  --bg: var(--color-ink-0);
+  --bg-2: var(--color-ink-1);
+  --bg-3: var(--color-ink-2);
+  --fg: var(--color-paper-0);
+  --fg-2: #b9bdc6;
+  --fg-3: #858b97;
+  --fg-hover: #ffffff;
+  --line: rgb(243 240 234 / 0.1);
+  --line-strong: rgb(243 240 234 / 0.24);
+  --accent: var(--color-blue-500);
+  --on-accent: var(--color-ink-0);
+  color-scheme: dark;
+}
+
+[data-surface="navy"] {
+  --bg: var(--color-ink-1);
+}
+
+[data-surface="paper"] {
+  --bg: var(--color-paper-0);
+  --bg-2: var(--color-paper-1);
+  --bg-3: #dfdacf;
+  --fg: var(--color-ink-0);
+  --fg-2: #4b515e;
+  --fg-3: #5b6170;
+  --fg-hover: var(--color-ink-2);
+  --line: rgb(10 12 16 / 0.12);
+  --line-strong: rgb(10 12 16 / 0.28);
+  --accent: var(--color-blue-700);
+  --on-accent: var(--color-paper-0);
+  color-scheme: light;
+}
+
+/* Type scale — Latin (default) ──────────────────────────────────────────── */
+:root {
+  --font-stack: var(--font-latin);
+  --measure: 40rem;
+
+  --fs-display: clamp(2.75rem, 1.5rem + 5.5vw, 6.5rem);
+  --lh-display: 0.95;
+  --ls-display: -0.03em;
+
+  --fs-h1: clamp(2.25rem, 1.25rem + 4vw, 4.5rem);
+  --lh-h1: 1;
+  --ls-h1: -0.025em;
+
+  --fs-h2: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --lh-h2: 1.1;
+  --ls-h2: -0.02em;
+
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --lh-h3: 1.25;
+  --ls-h3: -0.01em;
+
+  --fs-body-l: clamp(1.125rem, 1rem + 0.4vw, 1.25rem);
+  --lh-body-l: 1.5;
+
+  --fs-body: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --lh-body: 1.6;
+
+  --fs-small: 0.875rem;
+  --lh-small: 1.5;
+
+  --fs-meta: 0.75rem;
+  --lh-meta: 1.4;
+  --ls-meta: 0.08em;
+  --tt-meta: uppercase;
+
+  --fs-ui: 0.9375rem; /* nav, buttons */
+  --ls-ui: 0.01em;
+}
+
+/* Type scale — Arabic: its own values, not a multiplier ─────────────────── */
+html[lang="ar"] {
+  --font-stack: var(--font-arabic), var(--font-latin);
+  --measure: 38rem;
+
+  --fs-display: clamp(2.5rem, 1.4rem + 5vw, 5.75rem);
+  --lh-display: 1.2;
+  --ls-display: 0;
+
+  --fs-h1: clamp(2rem, 1.2rem + 3.5vw, 4rem);
+  --lh-h1: 1.25;
+  --ls-h1: 0;
+
+  --fs-h2: clamp(1.625rem, 1.1rem + 2vw, 2.5rem);
+  --lh-h2: 1.35;
+  --ls-h2: 0;
+
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --lh-h3: 1.5;
+  --ls-h3: 0;
+
+  --fs-body-l: clamp(1.1875rem, 1.05rem + 0.4vw, 1.3125rem);
+  --lh-body-l: 1.75;
+
+  --fs-body: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
+  --lh-body: 1.8;
+
+  --fs-small: 0.9375rem;
+  --lh-small: 1.7;
+
+  --fs-meta: 0.8125rem;
+  --lh-meta: 1.6;
+  --ls-meta: 0;
+  --tt-meta: none;
+
+  --fs-ui: 1rem;
+  --ls-ui: 0;
+}
+
+/* Type utilities ────────────────────────────────────────────────────────── */
+@utility t-display {
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  font-weight: 500;
+  text-wrap: balance;
+}
+@utility t-h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ls-h1);
+  font-weight: 500;
+  text-wrap: balance;
+}
+@utility t-h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+  font-weight: 500;
+  text-wrap: balance;
+}
+@utility t-h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  letter-spacing: var(--ls-h3);
+  font-weight: 500;
+  text-wrap: balance;
+}
+@utility t-body-l {
+  font-size: var(--fs-body-l);
+  line-height: var(--lh-body-l);
+  text-wrap: pretty;
+}
+@utility t-body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+@utility t-small {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+}
+@utility t-meta {
+  font-size: var(--fs-meta);
+  line-height: var(--lh-meta);
+  letter-spacing: var(--ls-meta);
+  text-transform: var(--tt-meta);
+  font-weight: 500;
+}
+@utility t-ui {
+  font-size: var(--fs-ui);
+  letter-spacing: var(--ls-ui);
+  font-weight: 500;
+  line-height: 1;
+}
+@utility measure {
+  max-width: var(--measure);
+}
+
+/* Base ──────────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-stack);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+
+  ::selection {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  /* Latin fragments inside Arabic pages (brand, EN label, Latin terms) keep
+     the Latin face; Arabic fragments inside English pages keep the Arabic. */
+  [lang="en"] {
+    font-family: var(--font-latin);
+  }
+  [lang="ar"] {
+    font-family: var(--font-arabic), var(--font-latin);
+    letter-spacing: 0;
+  }
+  html[lang="ar"] [lang="ar"],
+  html[lang="en"] [lang="en"] {
+    font-family: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Header hairline: hidden at the top of the page, present once the visitor
+   has scrolled 8px. CSS-only; browsers without scroll-driven animations keep
+   the rule permanently visible. */
+@supports (animation-timeline: scroll()) {
+  .header-rule {
+    opacity: 0;
+    animation: header-rule linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 8px;
+  }
+  @keyframes header-rule {
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* Mobile menu dialog: full-bleed navy overlay, no backdrop, fade + rise. */
+dialog.menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--bg);
+  color: var(--fg);
+  opacity: 1;
+  translate: 0 0;
+  transition:
+    opacity 300ms var(--ease-out),
+    translate 300ms var(--ease-out),
+    display 300ms allow-discrete,
+    overlay 300ms allow-discrete;
+}
+dialog.menu::backdrop {
+  background: transparent;
+}
+@starting-style {
+  dialog.menu[open] {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+html.menu-open {
+  overflow: hidden;
+}

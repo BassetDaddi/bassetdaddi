@@ -1,0 +1,41 @@
+{
+  "A11y": {
+    "skip": "Skip to content",
+    "home": "Basset Daddi — home",
+    "primaryNav": "Primary",
+    "opensNewTab": "opens in a new tab"
+  },
+  "Nav": {
+    "work": "Work",
+    "services": "Services",
+    "about": "About",
+    "notes": "Notes",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "Switcher": {
+    "label": "Language",
+    "en": "English",
+    "ar": "Arabic",
+    "switchTo": "Switch to {language}"
+  },
+  "Footer": {
+    "navigation": "Navigation",
+    "elsewhere": "Elsewhere",
+    "basedIn": "Based in {location}",
+    "rights": "© {year} Basset Daddi"
+  },
+  "Contact": {
+    "channels": "Direct channels",
+    "elsewhere": "Elsewhere",
+    "email": "Email",
+    "emailPending": "Email address to be added"
+  },
+  "NotFound": {
+    "eyebrow": "404",
+    "title": "This page doesn't exist.",
+    "body": "The address may be mistyped, or the page has moved.",
+    "back": "Back to the start"
+  }
+}
