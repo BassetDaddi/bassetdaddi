@@ -9,4 +9,4 @@ export function getCopy(locale: Locale): SiteCopy {
   return copy[locale];
 }
 
-export type { PageCopy, PageKey, SiteCopy } from "./types";
+export type { PageKey, PageMeta, SiteCopy } from "./types";

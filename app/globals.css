@@ -85,6 +85,10 @@
   --lh-display: 0.95;
   --ls-display: -0.03em;
 
+  --fs-hero: clamp(2.5rem, 1.2rem + 4.6vw, 6rem);
+  --lh-hero: 0.98;
+  --ls-hero: -0.03em;
+
   --fs-h1: clamp(2.25rem, 1.25rem + 4vw, 4.5rem);
   --lh-h1: 1;
   --ls-h1: -0.025em;
@@ -124,6 +128,10 @@ html[lang="ar"] {
   --lh-display: 1.2;
   --ls-display: 0;
 
+  --fs-hero: clamp(2.25rem, 1.1rem + 4vw, 5.25rem);
+  --lh-hero: 1.2;
+  --ls-hero: 0;
+
   --fs-h1: clamp(2rem, 1.2rem + 3.5vw, 4rem);
   --lh-h1: 1.25;
   --ls-h1: 0;
@@ -159,6 +167,13 @@ html[lang="ar"] {
   font-size: var(--fs-display);
   line-height: var(--lh-display);
   letter-spacing: var(--ls-display);
+  font-weight: 500;
+  text-wrap: balance;
+}
+@utility t-hero {
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-hero);
   font-weight: 500;
   text-wrap: balance;
 }
@@ -212,6 +227,12 @@ html[lang="ar"] {
 }
 @utility measure {
   max-width: var(--measure);
+}
+@utility section-y {
+  padding-block: clamp(6rem, 12vw, 10rem);
+}
+@utility block-y {
+  padding-block: clamp(3rem, 6vw, 6rem);
 }
 
 /* Base ──────────────────────────────────────────────────────────────────── */
@@ -314,4 +335,111 @@ dialog.menu::backdrop {
 }
 html.menu-open {
   overflow: hidden;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Motion — publication restraint. One reveal pattern, one hero sequence,
+   a subtle scroll-linked drift on large images, and hover states.
+   Everything collapses under prefers-reduced-motion (see @layer base).
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Reveal: hidden only when JS is present (the html[data-js] flag), shown when the
+   element enters the viewport. Without JS the content is simply visible. */
+html[data-js] [data-reveal] {
+  opacity: 0;
+  translate: 0 14px;
+  transition:
+    opacity 700ms var(--ease-out),
+    translate 700ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+html[data-js] [data-reveal][data-inview] {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Image reveal: the frame clips, the image settles from a slight zoom. */
+html[data-js] [data-reveal] .img-reveal {
+  scale: 1.06;
+  transition: scale 1100ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+html[data-js] [data-reveal][data-inview] .img-reveal {
+  scale: 1;
+}
+
+/* Hero sequence on load: eyebrow, headline, body, actions rise in order;
+   the portrait fades in from ink. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes emerge {
+  from {
+    opacity: 0;
+    scale: 1.03;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+.hero-in {
+  animation: rise 900ms var(--ease-out) both;
+  animation-delay: var(--d, 0ms);
+}
+.hero-portrait-in {
+  animation: emerge 1200ms var(--ease-out) both;
+  animation-delay: 150ms;
+}
+
+/* Scroll-linked drift for large images: ±3% over the element's time in
+   view. CSS-only; browsers without scroll-driven animations show it static. */
+@supports (animation-timeline: view()) {
+  .drift > .drift-target {
+    animation: drift linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+  @keyframes drift {
+    from {
+      translate: 0 3%;
+    }
+    to {
+      translate: 0 -3%;
+    }
+  }
+}
+
+/* Editorial imagery: desaturated slightly so four different photographs sit
+   inside one palette. Portraits are never filtered. */
+.editorial-img {
+  filter: saturate(0.72) contrast(1.04);
+}
+
+/* Plates (project entries, editorial images) — hover breathes the image. */
+.plate .plate-img {
+  transition: scale 700ms var(--ease-out);
+}
+.plate:hover .plate-img {
+  scale: 1.02;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift > .drift-target {
+    animation: none;
+  }
+  html[data-js] [data-reveal] {
+    opacity: 1;
+    translate: 0 0;
+  }
+  html[data-js] [data-reveal] .img-reveal {
+    scale: 1;
+  }
 }

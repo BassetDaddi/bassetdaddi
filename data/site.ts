@@ -14,9 +14,7 @@ export const SITE = {
     en: "Algeria",
     ar: "الجزائر",
   },
-  // Not yet provided — see docs/DECISIONS.md. Components render a marked
-  // placeholder while this is null; nothing is invented.
-  email: null as string | null,
+  email: "contact@bassetdaddi.com",
 } as const;
 
 export type SocialId =
@@ -54,5 +52,6 @@ export const SOCIAL: readonly SocialLink[] = [
   },
 ] as const;
 
+export const SOCIAL_URLS = SOCIAL.map((link) => link.url);
 export const PRIMARY_SOCIAL = SOCIAL.slice(0, 2);
 export const SECONDARY_SOCIAL = SOCIAL.slice(2);

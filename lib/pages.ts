@@ -21,7 +21,7 @@ export async function pageMetadata(
   { params }: LocaleParams,
 ): Promise<Metadata> {
   const locale = toLocale((await params).locale);
-  const page = getCopy(locale).pages[key];
+  const page = getCopy(locale).meta[key];
   return localizedMetadata({
     locale,
     path: PAGE_PATHS[key],

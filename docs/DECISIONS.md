@@ -50,3 +50,12 @@ Phased delivery; at the end of each phase: stop, show the result, explain key de
 ## 2026-09-16 — Phase 2 (foundation) built
 
 "Start building" approved Phase 1 as working defaults: Instrument Sans + IBM Plex Sans Arabic, hero headline candidate A, BD mark alone in navigation with the full lockup in the footer, surface rhythm as proposed, email as a marked placeholder. All remain open to change at review. Foundation delivered: Next.js 16 scaffold, tokens, i18n with `proxy.ts` (cookie → Accept-Language → en), header/footer/switcher/mobile menu, six routes per locale, hreflang/canonical, localized 404. Git repository initialized, nothing committed yet.
+
+## 2026-09-16 — Content phase (all pages populated)
+
+Client supplied the final copy for every page in both languages plus the email address (contact@bassetdaddi.com). Used directly; only separators/dashes adjusted. Additions made to complete pages, all derived from the supplied facts and marked in code:
+
+- Force Screw case study: Context / Problem / Strategy / Execution restate the supplied description and scope; Creative, Paid media and Experiments are shown as "In progress"; Results and Learnings as "Not yet verified"; Year shown as "Ongoing" until the client confirms a start year. No numbers anywhere.
+- Arabic labels for the case-study scope, "Industrial manufacturing" (الصناعة التحويلية) and UI strings were authored to match the client's Arabic voice.
+- Editorial imagery (four Unsplash photographs, credited) is used for atmosphere only and captioned "not a client asset" where it could be misread. Register: docs/imagery.md.
+- Notes: infrastructure with categories and the client's empty-state line; no articles invented.

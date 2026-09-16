@@ -3,7 +3,8 @@
     "skip": "Skip to content",
     "home": "Basset Daddi — home",
     "primaryNav": "Primary",
-    "opensNewTab": "opens in a new tab"
+    "opensNewTab": "opens in a new tab",
+    "photo": "Photo"
   },
   "Nav": {
     "work": "Work",
@@ -23,19 +24,55 @@
   "Footer": {
     "navigation": "Navigation",
     "elsewhere": "Elsewhere",
-    "basedIn": "Based in {location}",
+    "contact": "Contact",
     "rights": "© {year} Basset Daddi"
+  },
+  "Work": {
+    "caseStudy": "Case study",
+    "client": "Client",
+    "industry": "Industry",
+    "country": "Country",
+    "year": "Year",
+    "ongoing": "Ongoing",
+    "role": "Role",
+    "status": "Status",
+    "inProgress": "Work in progress",
+    "completed": "Completed",
+    "scope": "Scope",
+    "introduction": "Introduction",
+    "context": "Context",
+    "problem": "Problem",
+    "strategy": "Strategy",
+    "execution": "Execution",
+    "creative": "Creative",
+    "paidMedia": "Paid media",
+    "experiments": "Experiments",
+    "results": "Results",
+    "learnings": "Learnings",
+    "nextProject": "Next project",
+    "pendingTitle": "Creative, paid media, experiments, results and learnings",
+    "pendingBody": "These sections are published only once the work is complete and the results are verified. No numbers appear here until they are real.",
+    "notVerified": "Not yet verified",
+    "backToWork": "Back to work",
+    "pending": "In progress"
+  },
+  "Notes": {
+    "categories": "Categories",
+    "allNotes": "All notes"
   },
   "Contact": {
     "channels": "Direct channels",
     "elsewhere": "Elsewhere",
     "email": "Email",
-    "emailPending": "Email address to be added"
+    "writeTo": "Write to"
   },
   "NotFound": {
     "eyebrow": "404",
     "title": "This page doesn't exist.",
     "body": "The address may be mistyped, or the page has moved.",
     "back": "Back to the start"
+  },
+  "Services": {
+    "all": "All services"
   }
 }

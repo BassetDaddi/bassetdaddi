@@ -9,8 +9,8 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import type { NavItem } from "./NavLinks";
 
 // Footer on ink: the full lockup where the wordmark can be legible, the
-// positioning line, the page list, the verified profiles, the switcher.
-// Hairline rules, no boxes.
+// three-word tagline, location and email, the page list, the verified
+// profiles, the switcher. Hairline rules, no boxes. Year is computed.
 export async function Footer() {
   const locale = toLocale(await getLocale());
   const copy = getCopy(locale);
@@ -29,6 +29,8 @@ export async function Footer() {
   ];
 
   const year = new Date().getFullYear();
+  const linkClass =
+    "t-ui no-underline transition-colors duration-150 ease-std hover:text-accent";
 
   return (
     <footer data-surface="ink" className="border-t border-line bg-surface text-fg">
@@ -36,10 +38,11 @@ export async function Footer() {
         <div className="grid grid-cols-6 gap-x-4 gap-y-12 py-16 md:grid-cols-12 md:gap-x-6 md:py-24 lg:gap-x-8">
           <div className="col-span-6 md:col-span-5">
             <LogoLockup height={88} label={SITE.brand} />
-            <p className="mt-8 measure t-body text-fg-2">{copy.positioning}</p>
-            <p className="mt-3 t-small text-fg-3">
-              {footer("basedIn", { location: SITE.location[locale] })}
-            </p>
+            <p className="mt-8 t-h3 text-fg">{copy.footer.tagline}</p>
+            <p className="mt-6 t-small text-fg-3">{SITE.location[locale]}</p>
+            <a href={`mailto:${SITE.email}`} className={`mt-1 inline-block ${linkClass}`} lang="en">
+              {SITE.email}
+            </a>
           </div>
 
           <div className="col-span-3 md:col-span-3 md:col-start-7">
@@ -47,10 +50,7 @@ export async function Footer() {
             <ul className="mt-5 flex flex-col gap-3">
               {items.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="t-ui no-underline transition-colors duration-150 ease-std hover:text-accent"
-                  >
+                  <Link href={item.href} className={linkClass}>
                     {item.label}
                   </Link>
                 </li>
@@ -63,12 +63,7 @@ export async function Footer() {
             <ul className="mt-5 flex flex-col gap-3">
               {SOCIAL.map((link) => (
                 <li key={link.id}>
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="me noopener"
-                    className="t-ui no-underline transition-colors duration-150 ease-std hover:text-accent"
-                  >
+                  <a href={link.url} target="_blank" rel="me noopener" className={linkClass}>
                     {link.label}
                   </a>
                 </li>

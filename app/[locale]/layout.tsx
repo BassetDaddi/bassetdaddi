@@ -48,8 +48,12 @@ export default async function LocaleLayout({
       lang={locale}
       dir={dirFor(locale)}
       className={`${latin.variable} ${arabic.variable} h-full`}
+      suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-surface text-fg">
+        {/* Marks the document as JS-capable before the first paint so reveal
+            animations can start hidden; without JS everything is visible. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.setAttribute('data-js','')" }} />
         {/* Client components receive their strings as props, so no message
             bundle is serialized into the page; only the locale is provided. */}
         <NextIntlClientProvider messages={null}>
