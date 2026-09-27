@@ -7,14 +7,10 @@ import { AboutTeaser } from "@/sections/AboutTeaser";
 import { Approach } from "@/sections/Approach";
 import { FinalCta } from "@/sections/FinalCta";
 import { Hero } from "@/sections/Hero";
-import { NotesTeaser } from "@/sections/NotesTeaser";
+import { MediaBuyingOffer } from "@/sections/MediaBuyingOffer";
 import { Positioning } from "@/sections/Positioning";
-import { SelectedWork } from "@/sections/SelectedWork";
 import { Services } from "@/sections/Services";
 
-// Homepage narrative from the brief: nav · hero · positioning · selected work ·
-// services · approach · about · notes · final CTA · footer. Surfaces: ink →
-// ink → ink → navy → paper → paper → ink → ink.
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]">): Promise<Metadata> {
@@ -39,11 +35,10 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
     <>
       <Hero locale={locale} />
       <Positioning locale={locale} />
-      <SelectedWork locale={locale} />
       <Services locale={locale} />
-      <Approach locale={locale} />
+      <MediaBuyingOffer locale={locale} surface="paper" />
+      <Approach locale={locale} surface="navy" />
       <AboutTeaser locale={locale} />
-      <NotesTeaser locale={locale} />
       <FinalCta locale={locale} />
     </>
   );

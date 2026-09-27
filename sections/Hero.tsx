@@ -46,7 +46,7 @@ export function Hero({ locale }: { locale: Locale }) {
               {hero.body}
             </p>
             <div className="hero-in mt-10 flex flex-wrap gap-3" style={d(260)}>
-              <Button href="/work">{hero.primaryCta}</Button>
+              <Button href="/services">{hero.primaryCta}</Button>
               <Button href="/contact" variant="secondary">
                 {hero.secondaryCta}
               </Button>

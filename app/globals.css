@@ -229,7 +229,7 @@ html[lang="ar"] {
   max-width: var(--measure);
 }
 @utility section-y {
-  padding-block: clamp(6rem, 12vw, 10rem);
+  padding-block: clamp(4.75rem, 10vw, 9rem);
 }
 @utility block-y {
   padding-block: clamp(3rem, 6vw, 6rem);
@@ -243,6 +243,7 @@ html[lang="ar"] {
   }
 
   body {
+    overflow-x: hidden;
     background: var(--bg);
     color: var(--fg);
     font-family: var(--font-stack);

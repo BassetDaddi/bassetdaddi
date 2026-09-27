@@ -7,10 +7,8 @@
     "photo": "صورة"
   },
   "Nav": {
-    "work": "الأعمال",
     "services": "الخدمات",
     "about": "عنّي",
-    "notes": "ملاحظات",
     "contact": "تواصل",
     "menu": "القائمة",
     "close": "إغلاق"
@@ -26,39 +24,6 @@
     "elsewhere": "في أماكن أخرى",
     "contact": "تواصل",
     "rights": "© {year} باسط دادي"
-  },
-  "Work": {
-    "caseStudy": "دراسة حالة",
-    "client": "العميل",
-    "industry": "القطاع",
-    "country": "البلد",
-    "year": "السنة",
-    "ongoing": "مستمر",
-    "role": "الدور",
-    "status": "الحالة",
-    "inProgress": "قيد التطوير",
-    "completed": "مكتمل",
-    "scope": "نطاق العمل",
-    "introduction": "مقدّمة",
-    "context": "السياق",
-    "problem": "المشكلة",
-    "strategy": "الاستراتيجية",
-    "execution": "التنفيذ",
-    "creative": "المحتوى الإبداعي",
-    "paidMedia": "الإعلانات المدفوعة",
-    "experiments": "التجارب",
-    "results": "النتائج",
-    "learnings": "الدروس",
-    "nextProject": "المشروع التالي",
-    "pendingTitle": "المحتوى الإبداعي، الإعلانات المدفوعة، التجارب، النتائج والدروس",
-    "pendingBody": "تُنشر هذه الأقسام فقط بعد اكتمال العمل والتحقّق من النتائج. لا تظهر هنا أي أرقام قبل أن تكون حقيقية.",
-    "notVerified": "لم يتم التحقّق بعد",
-    "backToWork": "العودة إلى الأعمال",
-    "pending": "قيد التنفيذ"
-  },
-  "Notes": {
-    "categories": "التصنيفات",
-    "allNotes": "كل الملاحظات"
   },
   "Contact": {
     "channels": "قنوات مباشرة",

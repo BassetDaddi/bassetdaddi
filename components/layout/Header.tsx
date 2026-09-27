@@ -8,9 +8,6 @@ import { MobileMenu } from "./MobileMenu";
 import { NavLinks, type NavItem } from "./NavLinks";
 import { SocialLinks } from "./SocialLinks";
 
-// Sticky, solid ink, no blur. 72px on desktop, 64px on mobile. Order along the
-// inline axis: mark · Work · Services · About · Notes · (space) · Contact ·
-// EN / عربي. In Arabic the same markup flows right-to-left on its own.
 export async function Header() {
   const [nav, a11y, switcher] = await Promise.all([
     getTranslations("Nav"),
@@ -19,10 +16,8 @@ export async function Header() {
   ]);
 
   const items: NavItem[] = [
-    { href: "/work", label: nav("work") },
     { href: "/services", label: nav("services") },
     { href: "/about", label: nav("about") },
-    { href: "/notes", label: nav("notes") },
   ];
 
   const switcherLabels = {
@@ -37,23 +32,19 @@ export async function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-40 bg-surface">
+    <header className="sticky top-0 z-40 bg-surface/95 backdrop-blur-sm">
       <Container className="flex h-16 items-center gap-6 md:h-[72px] lg:gap-8">
         {brandLink}
-
         <NavLinks items={items} label={a11y("primaryNav")} className="hidden md:flex" />
-
         <Link
           href="/contact"
-          className="ms-auto hidden t-ui no-underline transition-colors duration-150 ease-std hover:text-fg-2 md:inline-block"
+          className="ms-auto hidden rounded-[2px] border border-line-strong px-4 py-2 t-ui no-underline transition-colors duration-150 ease-std hover:border-fg md:inline-block"
         >
           {nav("contact")}
         </Link>
-
         <div className="hidden md:block">
           <LanguageSwitcher labels={switcherLabels} groupLabel={switcher("label")} />
         </div>
-
         <MobileMenu
           items={[...items, { href: "/contact", label: nav("contact") }]}
           labels={{ menu: nav("menu"), close: nav("close") }}

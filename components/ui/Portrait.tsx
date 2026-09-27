@@ -1,14 +1,10 @@
 import Image from "next/image";
 import { cn } from "@/lib/cn";
 
-// The four real portraits (1122 × 1402, transparent). Three are cut at the
-// thigh or knee, so every frame is shorter than the image and anchored to the
-// top: the cut edge is always clipped, never shown. No filters, no shadows,
-// never mirrored.
+// Real portrait assets. Frames stay restrained and are never filtered or mirrored.
 export const PORTRAITS = {
   hero: "/images/portraits/basset-hero.png",
   about: "/images/portraits/basset-about.png",
-  work: "/images/portraits/basset-work.png",
   avatar: "/images/portraits/basset-avatar.png",
 } as const;
 

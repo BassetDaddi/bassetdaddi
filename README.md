@@ -1,36 +1,54 @@
 # bassetdaddi.com
 
-Official personal site of **Basset Daddi** — growth strategist and builder, Algeria. English and Arabic (RTL), built as one static site with a single request-time interceptor for language routing.
+Bilingual (English / Arabic RTL) personal website for **Basset Daddi**, focused on paid media, conversion-focused web experiences and growth systems.
 
 ## Stack
 
-Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · next-intl 4 · Vercel.
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · next-intl 4.
 
-## Structure
+## Main structure
 
+```text
+app/[locale]/        localized Home, Services, About and Contact pages
+components/          reusable UI and layout components
+content/{en,ar}/     typed English and Arabic website copy
+sections/            homepage/service sections, including Media Buying pricing
+data/                identity, imagery and availability
+public/images/       brand assets and portraits
+i18n/                locale routing and UI messages
+lib/                 SEO, locale and utility helpers
 ```
-app/[locale]/        routes — every page prerendered for en and ar
-components/          brand marks, ui primitives, layout shell
-content/{en,ar}/     long-form copy per locale (typed; a missing line fails the build)
-data/                identity, verified links, availability status
-i18n/                routing, navigation helpers, request config, UI messages
-lib/                 locale primitives, fonts, SEO helpers
-proxy.ts             cookie → Accept-Language → en, for unprefixed URLs only
-docs/                brief, locked decisions, design system
-public/images/       portraits and logo (never replaced, never redrawn)
-```
+
+## Media Buying pricing
+
+The public pricing block is defined in:
+
+- `content/en/site.ts`
+- `content/ar/site.ts`
+- rendered by `sections/MediaBuyingOffer.tsx`
+
+Current structure:
+
+- First month: **45,000 DA** — setup, launch and management
+- Following months: **35,000 DA / month** — ongoing management and optimization
+- Advertising spend is explicitly separate and paid directly by the client to the ad platforms.
+
+## Quality / SEO
+
+The site includes responsive layouts, bilingual metadata, canonical + hreflang tags, sitemap/robots support, Person structured data and Media Buying service/offer structured data.
 
 ## Scripts
 
-```
-npm run dev     # local development
-npm run build   # production build + type check
+```bash
+npm install
+npm run dev
+npm run build
 npm run lint
 ```
 
 ## Editing content
 
-- Availability status: `data/availability.ts`
-- Identity and links: `data/site.ts`
-- Page copy: `content/en/site.ts`, `content/ar/site.ts`
-- UI labels: `i18n/messages/{en,ar}.json`
+- Availability: `data/availability.ts`
+- Identity and social links: `data/site.ts`
+- Main copy and pricing: `content/en/site.ts`, `content/ar/site.ts`
+- Navigation/UI labels: `i18n/messages/{en,ar}.json`

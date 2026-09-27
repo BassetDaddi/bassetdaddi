@@ -8,9 +8,6 @@ import { toLocale } from "@/lib/locale";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import type { NavItem } from "./NavLinks";
 
-// Footer on ink: the full lockup where the wordmark can be legible, the
-// three-word tagline, location and email, the page list, the verified
-// profiles, the switcher. Hairline rules, no boxes. Year is computed.
 export async function Footer() {
   const locale = toLocale(await getLocale());
   const copy = getCopy(locale);
@@ -21,16 +18,13 @@ export async function Footer() {
   ]);
 
   const items: NavItem[] = [
-    { href: "/work", label: nav("work") },
     { href: "/services", label: nav("services") },
     { href: "/about", label: nav("about") },
-    { href: "/notes", label: nav("notes") },
     { href: "/contact", label: nav("contact") },
   ];
 
   const year = new Date().getFullYear();
-  const linkClass =
-    "t-ui no-underline transition-colors duration-150 ease-std hover:text-accent";
+  const linkClass = "t-ui no-underline transition-colors duration-150 ease-std hover:text-accent";
 
   return (
     <footer data-surface="ink" className="border-t border-line bg-surface text-fg">

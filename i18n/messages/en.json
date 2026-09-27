@@ -7,10 +7,8 @@
     "photo": "Photo"
   },
   "Nav": {
-    "work": "Work",
     "services": "Services",
     "about": "About",
-    "notes": "Notes",
     "contact": "Contact",
     "menu": "Menu",
     "close": "Close"
@@ -26,39 +24,6 @@
     "elsewhere": "Elsewhere",
     "contact": "Contact",
     "rights": "© {year} Basset Daddi"
-  },
-  "Work": {
-    "caseStudy": "Case study",
-    "client": "Client",
-    "industry": "Industry",
-    "country": "Country",
-    "year": "Year",
-    "ongoing": "Ongoing",
-    "role": "Role",
-    "status": "Status",
-    "inProgress": "Work in progress",
-    "completed": "Completed",
-    "scope": "Scope",
-    "introduction": "Introduction",
-    "context": "Context",
-    "problem": "Problem",
-    "strategy": "Strategy",
-    "execution": "Execution",
-    "creative": "Creative",
-    "paidMedia": "Paid media",
-    "experiments": "Experiments",
-    "results": "Results",
-    "learnings": "Learnings",
-    "nextProject": "Next project",
-    "pendingTitle": "Creative, paid media, experiments, results and learnings",
-    "pendingBody": "These sections are published only once the work is complete and the results are verified. No numbers appear here until they are real.",
-    "notVerified": "Not yet verified",
-    "backToWork": "Back to work",
-    "pending": "In progress"
-  },
-  "Notes": {
-    "categories": "Categories",
-    "allNotes": "All notes"
   },
   "Contact": {
     "channels": "Direct channels",

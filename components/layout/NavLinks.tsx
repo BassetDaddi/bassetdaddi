@@ -3,11 +3,8 @@
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
-export type NavItem = { href: "/work" | "/services" | "/about" | "/notes" | "/contact"; label: string };
+export type NavItem = { href: "/services" | "/about" | "/contact"; label: string };
 
-// Desktop navigation links. Client-side only for aria-current: the underline
-// grows from the inline-start edge on hover and stays, in the accent, on the
-// current page — the one accent allowed in the bar.
 export function NavLinks({
   items,
   label,
